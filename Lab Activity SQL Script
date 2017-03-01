@@ -1,8 +1,9 @@
 set echo on
 connect system/amakal
-Create PHP Application User,drop php user cascade;
-Create php user identified by welcome; 
-grant connect,resource to php user;
+-- Create PHP Application User
+drop user phpuser cascade;
+create user phpuser identified by welcome; 
+grant connect,resource to phpuser;
 alter user php user default tablespace users temporary tablespace temp account unlock;
 --Create user owner security info about the application 
 drop php_sec_admin cascade;
