@@ -10,7 +10,7 @@ drop user php_sec_admin cascade;
 create user php_sec_admin identified by welcome;
 alter user php_sec_admin default tablespace system
 temporary tablespace temp account unlock;
-grant create procedure,create sessio,create table,resource,select any dictionary to php_sec_admin;
+grant create procedure,create session,create table,resource,select any dictionary to php_sec_admin;
 connect phpuser/welcome;
 --"Parts" table for the application demo
 create table parts
