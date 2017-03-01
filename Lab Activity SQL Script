@@ -4,13 +4,13 @@ connect system/amakal
 drop user phpuser cascade;
 create user phpuser identified by welcome; 
 grant connect,resource to phpuser;
-alter user php user default tablespace users temporary tablespace temp account unlock;
+alter user phpuser default tablespace users temporary tablespace temp account unlock;
 --Create user owner security info about the application 
-drop php_sec_admin cascade;
-Create php_sec_admin idetified by welcome;
+drop user php_sec_admin cascade;
+create user php_sec_admin idetified by welcome;
 alter user php_sec_admin default tablespace system
 temporary tablespace temp account unlock;
-grant create procedure,create sessio,create table,resource,select any dictionary to php_sec_admin_;
+grant create procedure,create sessio,create table,resource,select any dictionary to php_sec_admin;
 connect phpuser/welcome;
 --"Parts" table for the application demo
 create table parts
