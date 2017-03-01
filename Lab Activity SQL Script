@@ -7,7 +7,7 @@ grant connect,resource to phpuser;
 alter user phpuser default tablespace users temporary tablespace temp account unlock;
 --Create user owner security info about the application 
 drop user php_sec_admin cascade;
-create user php_sec_admin idetified by welcome;
+create user php_sec_admin identified by welcome;
 alter user php_sec_admin default tablespace system
 temporary tablespace temp account unlock;
 grant create procedure,create sessio,create table,resource,select any dictionary to php_sec_admin;
