@@ -27,7 +27,7 @@ create table products(item_code varchar2(20) primary key,
 create table payments(username varchar2(20) primary key,
                      item_code varchar2(20) not null,
                      reference_no varchar2(40) not null,
-                     total number(30), not null,
+                     total number(30) not null,
                      quantity number(30) not null);
                      
 create table auction(username varchar2(20) primary key,
@@ -35,6 +35,6 @@ create table auction(username varchar2(20) primary key,
                      amount number(30) not null);
                      
 insert into members(username,password,email)
-values("sunshine", "rose", "shinevaughan@yahoo.com");
+values('sunshine', 'rose', 'shinevaughan@yahoo.com');
 commit;
                    
