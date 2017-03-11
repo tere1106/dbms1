@@ -22,7 +22,7 @@
 		if (!isset($_POST['username'])) || !isset($_POST['password'])){
 			login_form('Welcome');
 			}else{
-
+			     // Check validity of the supplied username & password
 				$c = oci_pconnect(ORA_CON_UN, ORA_CON_PW,ORA_CON_DB);
 				oci_set_client_identifier($c, 'admin');
 
@@ -35,6 +35,9 @@
 				$r = oci_fetch_array($s, OCI_ASSOC);
 
 				if ($r) {
+					// The password matches: the user can use the application.
+					
+					// Set the username to be used as the client identifier in future HTTP requests:
 					$_SESSION['username'] = $_POST['username'];
 
 					echo <<<EOD
@@ -45,7 +48,7 @@
 					EOD;
 
 				}else{
-
+				      // No rows matched so login  failed
 					login_form('Login failed. Invalid username/password');
 
 
