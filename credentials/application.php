@@ -1,7 +1,8 @@
 <?php
   require_once('./dbinfo.inc.php');
   session _start();
-  
+
+  // Check the user is logged in according to our application authentication
  if(!isset($_SESSION['username'])) {
      echo <<<EOD
      <h2>Unauthorized</h2>
@@ -12,9 +13,12 @@
 EOD;
       exit;
    }
-   
+
+   // Generate the application page
    $c = oci_pconnect(ORA_CON_UN,ORA_CON_PW,ORA_CON_DB);
-   
+
+   // Set the client identifier after every connection call
+  //  using value unique for the web end user.
    oci_set_client_identifier($c, $_SESSION['username']);
    
    $username = htmlentities($_SESSION['username'],ENT_QUOTES);
