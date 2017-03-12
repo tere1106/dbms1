@@ -1,5 +1,5 @@
 <?php
-  seesion_start();
+  session_start();
   unset($_SESSION['username']);
   
   echo <<<EOD
@@ -9,6 +9,5 @@
   <p>You logged out.</p>
   
   <p><a href="login.php">Login Page</a></p>
-  </body>
- EOD;
+  </body>EOD;
  ?>
