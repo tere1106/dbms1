@@ -1,6 +1,6 @@
 <?php
   require_once('./dbinfo.inc.php');
-  session _start();
+  session_start();
 
   // Check the user is logged in according to our application authentication
  if(!isset($_SESSION['username'])) {
@@ -34,7 +34,7 @@ EOD;
     $s = oci_parse($c, "select * from parts order by id");
     oci_execute($s);
     while(($row = oci_fetch_array($s, OCI_ASSOC+OCI_RETURN_NULLS))
-        ! = false) {
+        != false) {
               echo "<tr>\n";
               foreach($row as $item) {
                   echo " <td>" .
@@ -48,6 +48,6 @@ EOD;
        </table>
        <p><a href="logout.php">logout</a></p>
        </body>
-    EOD;
+EOD;
     
     ?>
